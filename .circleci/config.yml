@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Copy over ssh
           command:
-            scp -v -o StrictHostKeyChecking=no -r -p ./* $SSH_USER@$SSH_HOST:/var/www/html/lichens-backend/
+            scp -v -o StrictHostKeyChecking=no -r -p ./* $SSH_USER@$SSH_HOST:/var/www/lichens-backend/
 
       # - run:
       #     name: connect via ssh
