@@ -15,7 +15,8 @@ import time
 
 import numpy as np
 from PIL import Image
-import tensorflow as tf # TF2
+# import tensorflow as tf # TF2
+import tflite_runtime.interpreter as tflite
 
 
 app = Flask(__name__)
@@ -32,7 +33,7 @@ def analysis():
         imagetostore = request.data[request.data.find(b'/9'):]
         image = Image.open(io.BytesIO(base64.b64decode(imagetostore))).save('image.jpg')
         print('file detected')
-        interpreter = tf.lite.Interpreter(
+        interpreter = tflite.Interpreter(
         model_path='modele_cree6.tflite', num_threads=None)
         interpreter.allocate_tensors()
 
