@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # Specify the version you desire here
+      - image: cimg/base:2020.01
+
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - 'ad:e1:02:66:71:97:15:90:82:bf:18:b1:a0:bb:7f:b0'
+      - run:
+          name: Copy over ssh
+          command:
+            scp -v -o StrictHostKeyChecking=no -r -p ./* $SSH_USER@$SSH_HOST:/var/www/html/lichens-backend/
+
+      # - run:
+      #     name: connect via ssh
+      #     command:
+      #       ssh -v -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST 'echo cd /var/www/www.carto-api.jeromehenry.fr/ && echo composer install -n --prefer-dist && echo php artisan migrate'
+
+      # - run:
+      #     name: composer install deps
+      #     command:
+      #       cd $ROOT_PATH && composer install -n --prefer-dist

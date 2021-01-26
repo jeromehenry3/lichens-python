@@ -33,7 +33,7 @@ def analysis():
         image = Image.open(io.BytesIO(base64.b64decode(imagetostore))).save('image.jpg')
         print('file detected')
         interpreter = tf.lite.Interpreter(
-        model_path='modele_cree5.tflite', num_threads=None)
+        model_path='modele_cree6.tflite', num_threads=None)
         interpreter.allocate_tensors()
 
         input_details = interpreter.get_input_details()
@@ -51,7 +51,7 @@ def analysis():
         input_data = np.expand_dims(img, axis=0)
 
         if floating_model:
-            input_data = (np.float32(input_data) - 127.5) / 127.5
+            input_data = (np.float32(input_data) - 0) / 255
 
         interpreter.set_tensor(input_details[0]['index'], input_data)
 
@@ -82,6 +82,6 @@ def analysis():
 
 # Loads species labels
 def load_labels():
-  with open('class_labels5.txt', 'r') as f:
+  with open('class_labels6.txt', 'r') as f:
     return [line.strip() for line in f.readlines()]
     
