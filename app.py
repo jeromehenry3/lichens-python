@@ -85,7 +85,4 @@ def analysis():
 def load_labels():
   with open('class_labels6.txt', 'r') as f:
     return [line.strip() for line in f.readlines()]
-
-def run()
-    app.run(debug=True)
     
