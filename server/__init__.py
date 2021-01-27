@@ -6,3 +6,5 @@ app = Flask(__name__)
 CORS(app)
 
 from server import server
+
+app.run(debug=True)
