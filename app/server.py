@@ -1,11 +1,10 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-from flask import Flask
 from markupsafe import escape
 from flask import request
 from flask import make_response
-from flask_cors import CORS
+# from flask_cors import CORS
 from flask.json import jsonify
 from binascii import a2b_base64
 import base64
@@ -19,8 +18,8 @@ from PIL import Image
 import tflite_runtime.interpreter as tflite
 
 
-app = Flask(__name__)
-CORS(app)
+# app = Flask(__name__)
+# CORS(app)
 
 @app.route('/')
 def hello_world():
