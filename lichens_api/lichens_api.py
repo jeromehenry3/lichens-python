@@ -41,9 +41,9 @@ def analysis():
     load_labels()
     if request.data:
         imagetostore = request.data[request.data.find(b'/9'):]
-        image = Image.open(io.BytesIO(base64.b64decode(imagetostore))) #.save('/lichens_api/images/image.jpg')
+        image = Image.open(io.BytesIO(base64.b64decode(imagetostore))).save(os.path.abspath(os.path.dirname(__file__)) + '/images/last_image.jpg')
         print('file detected')
-        image.save(os.path.abspath(os.path.dirname(__file__)) + '/images/last_image.jpg')
+        # image.save(os.path.abspath(os.path.dirname(__file__)) + '/images/last_image.jpg')
         interpreter = tflite.Interpreter(
         model_path=os.path.abspath(os.path.dirname(__file__)) + '/modele_creeFRUCTIlr0001.tflite', num_threads=None)
         interpreter.allocate_tensors()
