@@ -36,7 +36,7 @@ def analysis():
         image = Image.open(io.BytesIO(base64.b64decode(imagetostore))) #.save('/lichens_api/images/image.jpg')
         print('file detected')
         interpreter = tflite.Interpreter(
-        model_path=os.path.abspath(os.path.dirname(__file__)) + '/modele_cree6.tflite', num_threads=None)
+        model_path=os.path.abspath(os.path.dirname(__file__)) + '/modele_creeFRUCTIlr0001.tflite', num_threads=None)
         interpreter.allocate_tensors()
 
         input_details = interpreter.get_input_details()
@@ -86,7 +86,7 @@ def analysis():
 
 # Loads species labels
 def load_labels():
-  with open(os.path.abspath(os.path.dirname(__file__)) + '/class_labels6.txt', 'r') as f:
+  with open(os.path.abspath(os.path.dirname(__file__)) + '/class_labelsFRUCTIlr0001.txt', 'r') as f:
     return [line.strip() for line in f.readlines()]
 
 if __name__ == '__main__':
