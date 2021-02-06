@@ -4,14 +4,14 @@ bryoria fuscescens
 evernia divaricata
 letharia vulpina
 ramalina canariensis
-ramalina farinacea new
-ramalina fastigiata new
+ramalina farinacea
+ramalina fastigiata
 ramalina fraxinea
 ramalina lacera
 ramalina pollinaria
-sphaerophorus globosus new
-teloschistes chrysophtalmus new
+sphaerophorus globosus
+teloschistes chrysophtalmus
 usnea articulata
 usnea cornuta
 usnea florida
-usnea rubicunda new
+usnea rubicunda
