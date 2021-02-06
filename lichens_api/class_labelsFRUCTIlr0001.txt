@@ -1,17 +1,17 @@
-anaptychia_ciliaris
-bryoria_capillaris
-bryoria_fuscescens
-evernia_divaricata
-letharia_vulpina
-ramalina_canariensis
-ramalina_farinacea_new_A_TRIER
-ramalina_fastigiata_new_A_TRIER
-ramalina_fraxinea
-ramalina_lacera
-ramalina_pollinaria
-sphaerophorus_globosus_new_A_TRIER
-teloschistes_chrysophtalmus_new_A_TRIER
-usnea_articulata
-usnea_cornuta
-usnea_florida
-usnea_rubicunda_new_A_TRIER
+anaptychia ciliaris
+bryoria capillaris
+bryoria fuscescens
+evernia divaricata
+letharia vulpina
+ramalina canariensis
+ramalina farinacea new
+ramalina fastigiata new
+ramalina fraxinea
+ramalina lacera
+ramalina pollinaria
+sphaerophorus globosus new
+teloschistes chrysophtalmus new
+usnea articulata
+usnea cornuta
+usnea florida
+usnea rubicunda new
