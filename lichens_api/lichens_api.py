@@ -3,8 +3,7 @@ from __future__ import division
 from __future__ import print_function
 from flask import Flask
 from markupsafe import escape
-from flask import request
-from flask import make_response
+from flask import request, send_from_directory, make_response, abort
 from flask_cors import CORS, cross_origin
 from flask.json import jsonify
 from binascii import a2b_base64
@@ -27,6 +26,15 @@ CORS(app)
 def hello():
     return 'Hello, Jérôme!'
 
+@app.route('/lastpicture')
+def get_last_picture():
+    try:
+        return send_from_directory('./images/', filename="last_image.jpg", as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
+
+
+
 @app.route('/analysis', methods=['POST'])
 @cross_origin(send_wildcard=True)
 def analysis():
@@ -35,6 +43,7 @@ def analysis():
         imagetostore = request.data[request.data.find(b'/9'):]
         image = Image.open(io.BytesIO(base64.b64decode(imagetostore))) #.save('/lichens_api/images/image.jpg')
         print('file detected')
+        image.save(os.path.abspath(os.path.dirname(__file__)) + '/images/last_image.jpg')
         interpreter = tflite.Interpreter(
         model_path=os.path.abspath(os.path.dirname(__file__)) + '/modele_creeFRUCTIlr0001.tflite', num_threads=None)
         interpreter.allocate_tensors()
@@ -90,4 +99,4 @@ def load_labels():
     return [line.strip() for line in f.readlines()]
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
