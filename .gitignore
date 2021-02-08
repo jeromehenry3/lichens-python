@@ -3,3 +3,5 @@ __pycache__
 label_image_script.py
 .gitignore
 lichens_api/images/*
+lichens_api/*.txt
+lichens_api/*.tflite

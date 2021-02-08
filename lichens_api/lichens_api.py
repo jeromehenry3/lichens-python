@@ -34,6 +34,11 @@ def get_last_picture():
         abort(404)
 
 
+@app.route('/get_labels')
+def get_labels_json():
+    labels = load_labels()
+    print(labels)
+    return jsonify(labels)
 
 @app.route('/analysis', methods=['POST'])
 @cross_origin(send_wildcard=True)
@@ -45,7 +50,7 @@ def analysis():
         print('file detected')
         image.save(os.path.abspath(os.path.dirname(__file__)) + '/images/last_image.jpg')
         interpreter = tflite.Interpreter(
-        model_path=os.path.abspath(os.path.dirname(__file__)) + '/modele_creeFRUCTIlr0001.tflite', num_threads=None)
+        model_path=os.path.abspath(os.path.dirname(__file__)) + '/modele_creeFructiFTlrate0002.tflite', num_threads=None)
         interpreter.allocate_tensors()
 
         input_details = interpreter.get_input_details()
@@ -95,7 +100,7 @@ def analysis():
 
 # Loads species labels
 def load_labels():
-  with open(os.path.abspath(os.path.dirname(__file__)) + '/class_labelsFRUCTIlr0001.txt', 'r') as f:
+  with open(os.path.abspath(os.path.dirname(__file__)) + '/class_labelsFructiFTlrate0002.txt', 'r') as f:
     return [line.strip() for line in f.readlines()]
 
 if __name__ == '__main__':
