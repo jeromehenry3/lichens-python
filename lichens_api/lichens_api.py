@@ -26,6 +26,10 @@ CORS(app)
 def hello():
     return 'Hello, Jérôme!'
 
+@app.route('/light')
+def light():
+    return '1'
+
 @app.route('/lastpicture')
 def get_last_picture():
     try:
