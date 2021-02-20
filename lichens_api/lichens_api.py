@@ -15,7 +15,6 @@ import os
 
 import numpy as np
 from PIL import Image
-# import tensorflow as tf # TF2
 import tflite_runtime.interpreter as tflite
 
 
@@ -28,7 +27,10 @@ def hello():
 
 @app.route('/light')
 def light():
-    return '1'
+    try:
+        return send_from_directory('./images/', filename="esp.json")
+    except FileNotFoundError:
+        abort(404)
 
 @app.route('/lastpicture')
 def get_last_picture():
