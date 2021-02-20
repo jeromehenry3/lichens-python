@@ -11,6 +11,7 @@ import base64
 import urllib.request
 import io
 import time
+import json
 import os
 
 import numpy as np
@@ -31,6 +32,17 @@ def light():
         return send_from_directory('./images/', filename="esp.json")
     except FileNotFoundError:
         abort(404)
+
+@app.route('/setlight', methods=['POST'])
+@cross_origin(send_wildcard=True)
+def set_light():
+    if request.json:
+        with open(os.path.abspath(os.path.dirname(__file__)) + '/images/esp.json', 'w') as file:
+            json.dump(request.json, file)
+        return {"updated": "ok"}
+    else:
+        abort(403)
+
 
 @app.route('/lastpicture')
 def get_last_picture():
