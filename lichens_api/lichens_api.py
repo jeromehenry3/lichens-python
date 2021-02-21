@@ -38,7 +38,7 @@ def light():
 def set_light():
     if request.json:
         with open(os.path.abspath(os.path.dirname(__file__)) + '/images/esp.json', 'w') as file:
-            json.dump(request.json, file)
+            json.dump(request.json, file, indent=2)
             file.close()
         return {"updated": "ok"}
     else:
